@@ -1,0 +1,53 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-track{
+    background-color: white;
+    padding: 5px;
+    border-radius: 20px;
+}
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(to right, yellow, rgb(253, 195, 4) );
+    border-radius: 20px;
+    cursor: pointer;
+    opacity: 0;
+    transition: 1s ease-in;
+}
+::-webkit-scrollbar-thumb:hover{
+    opacity: 1;
+}
+.selfScroll::-webkit-scrollbar{
+    width: 10px;
+}
+.selfScroll::-webkit-scrollbar-track{
+    background: linear-gradient(to right, yellow, rgb(253, 195, 4) );
+    padding: 5px;
+    border-radius: 20px;
+}
+.selfScroll::-webkit-scrollbar-thumb{
+    background: white;
+    border-radius: 20px;
+    cursor: pointer;
+    opacity: 0;
+    transition: 1s ease-in;
+}
+.selfScroll::-webkit-scrollbar-thumb:hover{
+    opacity: 1;
+}
+.primary-color{
+    background: linear-gradient(to right, yellow, rgb(253, 195, 4) );
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.bg-primary-color{
+    background: linear-gradient(to right, yellow, rgb(253, 195, 4) );
+}
