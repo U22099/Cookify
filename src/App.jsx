@@ -33,16 +33,16 @@ function App (){
         }
     }
     return(
-        <div className="flex flex-col w-[90vw] justify-center gap-[40px]">
+        <div className="flex flex-col w-[90vw] justify-center gap-4">
             <div className="bg-white md:w-[60vw] p-[20px] rounded-[20px] flex justify-center items-center flex-col md:mx-auto">
                 <h1 className="primary-color text-[2em] md:text-[2.5em]">Recipe Generator</h1>
                 <div className="flex flex-col md:flex-row justify-center gap-[20px] bg-white p-[20px] rounded-xl">
                     <input id="input" className=" bg-white focus:outline-none border-[yellow] border-[4px] rounded-[20px] p-[10px] text-[1.2em] md:text-[1.5em] w-[90vw] md:w-auto text-black" type="text" placeholder="Input any ingredient"/>
-                    <button className="bg-primary-color shadow-[1px_2px_3px_3px_rgba(0,0,0,0.5)] p-5 py-3 md:p-12 md:py-5 rounded-2xl text-black text-[1.5em] active:shadow-none" onClick={fetchData}>Find Food</button>
+                    <button className="bg-primary-color shadow-[1px_2px_3px_3px_rgba(0,0,0,0.5)] p-5 py-3 md:p-12 md:py-5 rounded-2xl text-black text-[1.5em] active:shadow-none md:max-w-3/4 mx-auto" onClick={fetchData}>Find Food</button>
                 </div>
             </div>
-            <div className="bg-white mx-auto w-[90vw] p-[30px] rounded-[20px] gap-[20px] grid-cols-1 grid md:grid-cols-3">
-                {loading&&<AiOutlineLoading className="flex mx-auto p-1 bg-gray-100 fill-yellow-400 text-[5em] md:text-[10em] roll rounded-full"/>}
+            {loading&&<AiOutlineLoading className="flex mx-auto p-1 bg-gray-100 fill-yellow-400 text-[5em] md:text-[10em] roll rounded-full"/>}
+            <div className="mt-4 md:mt-8bg-white mx-auto w-[90vw] p-[30px] rounded-[20px] gap-[20px] grid-cols-1 grid md:grid-cols-3">
                 {error&&<p className="text-red-600 font-mono text-bold">Recipe Not Found </p>}
                 {food.map((f,i)=> <Food img={f.strMealThumb} fetchFood={fetchFood} id={f.idMeal} key={i} name={f.strMeal}/>)}
             </div>
