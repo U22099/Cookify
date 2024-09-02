@@ -23,8 +23,6 @@ function App (){
         }catch(e){
             console.log(e);
             console.log(x);
-        }finally{
-
         }
     }
     return(
