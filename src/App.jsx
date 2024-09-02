@@ -13,8 +13,6 @@ function App (){
         }catch(e){
             console.log(e);
             console.log(input);
-        }finally{
-
         }
     }
     async function fetch(x){
@@ -34,7 +32,7 @@ function App (){
             <div className="bg-white md:w-[60vw] p-[20px] rounded-[20px] flex justify-center items-center flex-col md:mx-auto">
                 <h1 className="primary-color text-[2em] md:text-[2.5em]">Recipe Generator</h1>
                 <div className="flex flex-col md:flex-row justify-center gap-[20px] bg-white p-[20px] rounded-xl">
-                    <input id="input" className=" bg-white focus:outline-none border-[yellow] border-[4px] rounded-[20px] p-[10px] text-[1.2em] md:text-[1.5em] w-[90vw] md:w-auto text-black"type="text" placeholder="Input any ingredient"/>
+                    <input id="input" className=" bg-white focus:outline-none border-[yellow] border-[4px] rounded-[20px] p-[10px] text-[1.2em] md:text-[1.5em] w-[90vw] md:w-auto text-black" type="text" placeholder="Input any ingredient"/>
                     <button className="bg-primary-color shadow-[1px_2px_3px_3px_rgba(0,0,0,0.5)] p-[20px] rounded-[20px] text-black text-[1.5em] active:shadow-none" onClick={fetchData}>Find Food</button>
                 </div>
             </div>
