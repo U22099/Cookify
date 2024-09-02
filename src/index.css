@@ -51,3 +51,16 @@ body{
 .bg-primary-color{
     background: linear-gradient(to right, yellow, rgb(253, 195, 4) );
 }
+
+.roll{
+    animation: .4s rotate linear infinite;
+}
+
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg)
+    }
+}

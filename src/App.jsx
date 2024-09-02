@@ -1,21 +1,25 @@
 import img from "./assets/IMG_1221.JPG"
 import Food from './Components/Food'
 import {useState} from 'react'
+import {AiOutlineLoading} from 'react-icons/ai'
 
 function App (){
     const [food, setFood] = useState([]);
+    const [loading, setLoading] = useState(false);
     async function fetchData(){
         let input = document.getElementById("input").value;
         try{
+            setLoading(true);
             const response = await fetch(`https://themealdb.com/api/json/v1/1/filter.php?i=${input}`);
             const data = await response.json();
+            setLoading(false);
             setFood(data.meals);
         }catch(e){
             console.log(e);
             console.log(input);
         }
     }
-    async function fetch(x){
+    async function fetchFood(x){
         try{
             const response = await fetch(`https://themealdb.com/api/json/v1/1/lookup.php?i=${x}`);
             const data = await response.json();
@@ -35,7 +39,8 @@ function App (){
                 </div>
             </div>
             <div className="bg-white mx-auto w-[90vw] p-[30px] rounded-[20px] gap-[20px] grid-cols-1 grid md:grid-cols-3">
-                {food.map((f,i)=> <Food img={f.strMealThumb} fetch={fetch} id={f.idMeal} key={i} name={f.strMeal}/>)}
+                {loading&&<AiOutlineLoading className="flex mx-auto p-1 bg-gray-100 fill-yellow-400 text-[5em] md:text-[10em] roll rounded-full"/>}
+                {food.map((f,i)=> <Food img={f.strMealThumb} fetch={fetchFood} id={f.idMeal} key={i} name={f.strMeal}/>)}
             </div>
         </div>
     )
