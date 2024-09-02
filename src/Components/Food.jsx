@@ -12,10 +12,8 @@ function Food(f){
         <div className="flex flex-col p-[10px] border-[yellow] border-[4px] rounded-xl">
             <img className="w-[100%] h-[250px] rounded-xl" src={f.img}/>
             <h1 className="text-[1.8em] primary-color mx-auto">{f.name}</h1>
-            <button className="bg-primary-color w-[200px] mx-auto shadow-[1px_2px_3px_3px_rgba(0,0,0,0.5)] rounded-[20px] text-black active:shadow-none text-[1.5em] " onClick={()=>
-                {
-                    setShow(true);
-                    setData(f.fetch(f.id))}}>Get Recipe</button>
+            <button className="bg-primary-color w-[200px] mx-auto shadow-[1px_2px_3px_3px_rgba(0,0,0,0.5)] rounded-[20px] text-black active:shadow-none text-[1.5em] " onClick={async ()=>
+                {setShow(true);setData(await f.fetchFood(f.id));}}>Get Recipe</button>
             <div className={show ? "visible fixed w-[90vw] md:w-[50vw] h-[90vh] bg-primary-color border-red-500 border-[4px] rounded-lg p-[20px] z-[2] transition duration-1000 overflow-y-scroll selfScroll top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]" : "hidden"}>
                 <FoodRecipe
                 showDialog={closeDialog}

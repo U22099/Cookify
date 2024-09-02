@@ -53,7 +53,7 @@ body{
 }
 
 .roll{
-    animation: .4s rotate linear infinite;
+    animation: .3s rotate linear infinite;
 }
 
 @keyframes rotate{
