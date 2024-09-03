@@ -26,14 +26,13 @@ function App (){
                         <div 
                             onClick={async (e) => {
                                 console.log(x)
-                                console.log("clicked")
-                                document.getElementById("input")?.value = x;
+                                document.getElementById("input").value = x;
                                 document.querySelectorAll(".list")?.forEach(li => li.classList.remove("bg-primary-color"));
                                 e.target.classList.add("bg-primary-color");
                                 document.getElementById("recipe").scrollIntoView({behavior: smooth});
                                 await fetchData(x, setFood, setError, setLoading);
                         }} 
-                        className={(i > 20 ? "hidden md:flex ": "") +"cursor-pointer bg-gray-100 rounded-full p-2 w-fit h-fit list"}>{c}
+                        className={(i > 10 ? "hidden md:flex ": "") +"cursor-pointer bg-gray-100 rounded-full p-2 w-fit h-fit list"}>{c}
                         </div>)
                         )}
                 </div>
