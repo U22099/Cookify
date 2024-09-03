@@ -43,7 +43,7 @@ async function fetchIngredients(setIngredients, setLoading){
 function shuffle(arr){
     let i = arr.length;
     while(1 < --i){
-        const x = Math.floor(Math.random() * 1 )
+        const x = Math.floor(Math.random() * i)
         [arr[i], arr[x]] = [arr[x], arr[i]];
     }
 }
