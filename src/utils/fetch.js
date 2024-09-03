@@ -43,10 +43,11 @@ async function fetchIngredients(setIngredients, setLoading){
 }
 
 function shuffle(input){
-    let arr = input.slice();
+    if(!input) return []
+    let arr = [...input];
     let i = arr.length;
     while(1 < --i){
-        const x = Math.floor(Math.random() * i)
+        const x = Math.floor(Math.random() * i);
         [arr[i], arr[x]] = [arr[x], arr[i]];
     }
     return arr.slice(0, 50);
