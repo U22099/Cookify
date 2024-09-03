@@ -11,22 +11,24 @@ function App (){
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     useEffect(() => {
+        setLoading(true);
         fetchIngredients(setIngredients, setLoading);
     })
     return(
-        <div className="flex flex-col w-[90vw] justify-center gap-4">
+        <div className="flex flex-col w-[95vw] justify-center gap-4">
             <div className="bg-white md:w-[60vw] p-[20px] rounded-[20px] flex justify-center items-center flex-col md:mx-auto">
                 <h1 className="primary-color text-[2em] md:text-[2.5em]">Recipe Generator</h1>
                 <div className="flex flex-col md:flex-row justify-center gap-[20px] bg-white p-[20px] rounded-xl">
                     <input id="input" className=" bg-white focus:outline-none border-[yellow] border-[4px] rounded-[20px] p-[10px] text-[1.2em] md:text-[1.5em] w-[90vw] md:w-auto text-black" type="text" placeholder="Input any ingredient" onChange={(e) => setInput(e.target.value)}/>
                     <button className="bg-primary-color shadow-[1px_2px_3px_3px_rgba(0,0,0,0.5)] p-5 py-3 md:p-12 md:py-5 rounded-2xl text-black text-[1.5em] active:shadow-none md:max-w-3/4 mx-auto" onClick={()=> fetchData(input, setFood, setError, setLoading)}>Find Food</button>
                 </div>
-                <div className="mt-4 md:mt-8 bg-white mx-auto w-[90vw] md:w-[70vw] p-[30px] gap-2 grid-cols-2 grid md:grid-cols-4">
-                    {ingredients.map((x, i)=> <Ingredient key={i} name={x} className="list" onClick={async (e) => {
+            <div className="bg-white md:mx-auto md:w-[70vw] px-2 gap-2 flex flex-wrap">
+                    {ingredients.map((x, i)=> <Ingredient key={i} name={x} no={i} className="list w-fit" onClick={async (e) => {
                         setInput(x);
-                        await fetchData(input, setFood, setError, setLoading);
-                        document.querySelector(".list").map(li => li.classList.remove("bg-primary-color"));
+                        document.getElementById("input").value = x;
+                        document.querySelectorAll(".list").map(li => li.classList.remove("bg-primary-color"));
                         e.target.classList.add = "bg-primary-color";
+                        await fetchData(input, setFood, setError, setLoading);
                     }}/>)}
                 </div>
             </div>

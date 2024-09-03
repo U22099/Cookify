@@ -31,11 +31,20 @@ async function fetchIngredients(setIngredients, setLoading){
         const response = await fetch('https://www.themealdb.com/api/json/v1/1/list.php?i=list');
         const data = await response.json();
         const result = data.meals.map(x => x.strIngredient);
-        setIngredients(result);
-        setLoading(false)
+        setLoading(false);
+        
+        setIngredients(shuffle(result));
     }catch(e){
         console.log(e);
         console.log(x);
+    }
+}
+
+function shuffle(arr){
+    let i = arr.length;
+    while(1 < --i){
+        const x = Math.floor(Math.random()*(i-1))
+        [arr[i], arr[x]] = [arr[x], arr[i]];
     }
 }
     
