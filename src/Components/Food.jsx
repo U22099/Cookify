@@ -7,10 +7,20 @@ function Food(f){
     const [show, setShow] = useState(false);
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState({});
+    const ingredients = [];
     
     function closeDialog(){
         setShow(false);
     }
+    useEffect(()=>{
+        if(data.strMeasure1){
+            for(let i = 0; i < 20; i++){
+                ingredient.push(
+                    `${data[`${data.strMeasure}${x}`]} ${data[`${data.strIngredient}${x}`]}`
+                )
+            }
+        }
+    }, [data]);
     return(
         <div className="flex flex-col p-[10px] border-[yellow] border-[2px] rounded-xl">
             <img className="w-[100%] h-[250px] rounded-xl" src={f.img}/>
