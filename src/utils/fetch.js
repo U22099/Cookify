@@ -1,41 +1,44 @@
 async function fetchData(input, setFood, setError, setLoading){
+    setFood([]);
     input = input.replace(/ /g, "_");
     try{
         setLoading(true);
-        setError(false)
+        setError("")
         const response = await fetch(`https://themealdb.com/api/json/v1/1/filter.php?i=${input}`);
         const data = await response.json();
         setLoading(false);
         if(data.meals) setFood(data.meals);
-        if(!data.meals) setError(true);
+        if(!data.meals) setError("Recipe not found");
     } catch(e) {
         console.log(e, "Error occured at fetchData");
     }
 }
 async function fetchCategory (input, setFood, setError, setLoading){
+    setFood([]);
     input = input.replace(/ /g, "_");
     try{
         setLoading(true);
-        setError(false)
+        setError("")
         const response = await fetch(`https://themealdb.com/api/json/v1/1/filter.php?c=${input}`);
         const data = await response.json();
         setLoading(false);
         if(data.meals) setFood(data.meals);
-        if(!data.meals) setError(true);
+        if(!data.meals) setError("Food for this category not found");
     } catch(e) {
         console.log(e, "Error occured at fetchCategory");
     }
 }
 async function fetchArea (input, setFood, setError, setLoading){
+    setFood([]);
     input = input.replace(/ /g, "_");
     try{
         setLoading(true);
-        setError(false)
+        setError("")
         const response = await fetch(`https://themealdb.com/api/json/v1/1/filter.php?a=${input}`);
         const data = await response.json();
         setLoading(false);
         if(data.meals) setFood(data.meals);
-        if(!data.meals) setError(true);
+        if(!data.meals) setError("Food not available for this area");
     } catch(e) {
         console.log(e, "Error occured at fetchArea");
     }

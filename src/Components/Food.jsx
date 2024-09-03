@@ -7,26 +7,21 @@ function Food(f){
     const [show, setShow] = useState(false);
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState({});
-    const ingredients = [];
+    const [ingredients, setIngredients] = useState([]);
     
     function closeDialog(){
         setShow(false);
     }
     useEffect(()=>{
+        console.log(data);
         if(data.strMeasure1){
             for(let x = 1; x < 21; x++){
                 const measure = data[`strMeasure${x}`];
                 const ingredient = data[`strIngredient${x}`];
-                if(measure.includes("null") && !(ingredient.includes("null"))){
+                if((measure.includes("null") || !measure) && !(ingredient.includes("null"))){
                     ingredients.push(
                         `${ingredient}`
                     );
-                } else if(ingredient.includes("null") && !(measure.includes("null"))){
-                    ingredients.push(
-                        `${measure}`
-                    );
-                } else if(ingredient.includes("null") && measure.includes("null")){
-                    break;
                 } else {
                     ingredients.push(
                         `${measure} ${ingredient}`
