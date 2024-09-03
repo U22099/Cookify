@@ -21,7 +21,7 @@ function Food(f){
                 {loading&&<AiOutlineLoading className="flex mx-auto p-1 bg-gray-100 fill-yellow-400 text-[5em] md:text-[10em] roll rounded-full"/>}
 
                 <FoodRecipe
-                showDialog={closeDialog}
+                    showDialog={closeDialog}
                     name={data.strMeal}
                     category={data.strCategory}
                     img={data.strMealThumb}

@@ -1,6 +1,6 @@
 const Ingredient = ({name}) => {
   return(
-    <p className="bg-gray-200 rounded-full p-2 w-fit h-fit">{name}</p>
+    <p className="bg-gray-100 rounded-full p-2 w-fit h-fit">{name}</p>
   )
 }
 

@@ -16,7 +16,7 @@ body{
     border-radius: 20px;
 }
 ::-webkit-scrollbar-thumb{
-    background: linear-gradient(to right, yellow, rgb(253, 195, 4) );
+    background: linear-gradient(to right, yellow, rgb(253, 195, 4));
     border-radius: 20px;
     cursor: pointer;
     opacity: 0;
