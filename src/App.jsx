@@ -22,7 +22,7 @@ function App (){
                     <input id="input" className=" bg-white focus:outline-none border-[yellow] border-[4px] rounded-[20px] p-[10px] text-[1.2em] md:text-[1.5em] w-[90vw] md:w-auto text-black" type="text" placeholder="Input any ingredient" onChange={(e) => setInput(e.target.value)}/>
                     <button className="bg-primary-color shadow-[1px_2px_3px_3px_rgba(0,0,0,0.5)] p-5 py-3 md:p-12 md:py-5 rounded-2xl text-black text-[1.5em] active:shadow-none md:max-w-3/4 mx-auto" onClick={()=> fetchData(input, setFood, setError, setLoading)}>Find Food</button>
                 </div>
-            <div className="bg-white md:mx-auto md:w-[70vw] px-2 gap-2 flex flex-wrap">
+            <div className="bg-white md:mx-auto md:w-[70vw] px-2 gap-2 flex flex-wrap w-[95vw]">
                     {ingredients.map((x, i)=> <Ingredient key={i} name={x} no={i} className="list" onClick={async (e) => {
                         setInput(x);
                         document.getElementById("input").value = x;
