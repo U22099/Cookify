@@ -48,8 +48,8 @@ function Food(f){
                     tags={data.strTags} 
                     ingredients={ingredients}
                     recipe={data.strInstructions} 
-                    youtube={data.strYoutube}/>
-                </div>}
+                    youtube={data.strYoutube}/>}
+                </div>
         </div>
     )
 }
