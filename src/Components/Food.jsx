@@ -1,5 +1,5 @@
 import FoodRecipe from './FoodRecipe'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {fetchFood} from '../utils/fetch'
 import {AiOutlineLoading} from 'react-icons/ai'
 
