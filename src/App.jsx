@@ -1,5 +1,5 @@
 import Food from './Components/Food';
-import Ingredient from './Components/Ingredient';
+import Category from './Components/Category';
 import {useState, useEffect} from 'react';
 import {AiOutlineLoading} from 'react-icons/ai';
 import {fetchData, fetchIngredients} from './utils/fetch';
@@ -21,19 +21,24 @@ function App (){
                     <input id="input" className=" bg-white focus:outline-none border-[yellow] border-[4px] rounded-[20px] p-[10px] text-[1.2em] md:text-[1.5em] w-[90vw] md:w-auto text-black" type="text" placeholder="Input any ingredient" onChange={(e) => setInput(e.target.value)}/>
                     <button className="bg-primary-color shadow-[1px_2px_3px_3px_rgba(0,0,0,0.5)] p-5 py-3 md:p-12 md:py-5 rounded-2xl text-black text-[1.5em] active:shadow-none md:max-w-3/4 mx-auto" onClick={()=> fetchData(input, setFood, setError, setLoading)}>Find Food</button>
                 </div>
-            <div className="bg-white md:mx-auto md:w-[70vw] px-2 gap-2 flex flex-wrap w-[95vw]">
-                    {ingredients.map((x, i)=> <Ingredient key={i} name={x} no={i} className="list" onClick={async (e) => {
+            <div className="bg-white md:mx-auto md:w-[7vw] px-2 gap-2 flex flex-wrap w-[95vw]">
+                    {ingredients.map((x, i)=> {
+                        <div 
+                        onClick={async (e) => {
                         console.log(x)
+                        console.log("clicked")
                         document.getElementById("input").value = x;
                         document.querySelectorAll(".list").map(li => li.classList.remove("bg-primary-color"));
                         e.target.classList.add = "bg-primary-color";
+                        document.getElementById("recipe").scrollIntoView({behavior: smooth});
                         await fetchData(x, setFood, setError, setLoading);
-                    }}/>)}
+                    }} 
+                        className={(i > 20 ? "hidden md:flex ": "") +"cursor-pointer bg-gray-100 rounded-full p-2 w-fit h-fit list"}>{c}</div>})}
                 </div>
             </div>
-            {loading&&<AiOutlineLoading className="flex mx-auto p-1 bg-gray-100 fill-yellow-400 text-[5em] md:text-[10em] roll rounded-full"/>}
+            {loading&&<AiOutlineLoading className="flex mx-auto p-1 bg-gray-100 fill-yellow-400 text-[3em] md:text-[5em] roll rounded-full"/>}
             {error&&<p className="text-red-600 font-mono text-bold mx-auto">Recipe Not Found </p>}
-            <div className="mt-5 md:mt-8 bg-white mx-auto w-[90vw] rounded-[20px] gap-[20px] grid-cols-1 grid md:grid-cols-3">
+            <div id="recipe" className="mt-5 md:mt-8 bg-white mx-auto w-[90vw] rounded-[20px] gap-[20px] grid-cols-1 grid md:grid-cols-3">
                 {food.map((f,i)=> <Food img={f.strMealThumb} id={f.idMeal} key={i} name={f.strMeal}/>)}
             </div>
         </div>

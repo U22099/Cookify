@@ -29,7 +29,7 @@ function FoodRecipe(f){
                 <img src={f.img} className="rounded-lg w-[80%] mx-auto"/>
                 <MdClose className="text-[2em] absolute left-[95%] top-[0%] bg-black text-white rounded-full cursor-pointer" onClick={f.showDialog}/>
             </div>    
-            <p className="mx-auto">{f.tags}</p>
+            <p className="mx-auto max-w-[90%] flex flex-wrap">{f.tags}</p>
             <div className="ml-[5px] flex flex-col">
                 <p className="text-[1.4em]">Name: <span className="text-[orangered]">{f.name}</span></p>
                 <p className="text-[1.4em]">Category: <span className="text-[orangered]">{f.category}</span></p>

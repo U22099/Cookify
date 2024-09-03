@@ -12,13 +12,13 @@ function Food(f){
         setShow(false);
     }
     return(
-        <div className="flex flex-col p-[10px] border-[yellow] border-[4px] rounded-xl">
+        <div className="flex flex-col p-[10px] border-[yellow] border-[2px] rounded-xl">
             <img className="w-[100%] h-[250px] rounded-xl" src={f.img}/>
             <h1 className="text-[1.8em] primary-color mx-auto">{f.name}</h1>
             <button className="bg-primary-color w-[200px] mx-auto shadow-[1px_2px_3px_3px_rgba(0,0,0,0.5)] rounded-[20px] text-black active:shadow-none text-[1.5em] " onClick={async ()=>
                 {setShow(true);setData(await fetchFood(f.id, setLoading));}}>Get Recipe</button>
-            <div className={show ? "visible fixed w-[90vw] md:w-[50vw] h-[90vh] bg-primary-color border-red-500 border-[4px] rounded-lg p-[20px] z-[2] transition duration-1000 overflow-y-scroll selfScroll top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]" : "hidden"}>
-                {loading&&<AiOutlineLoading className="flex mx-auto p-1 bg-gray-100 fill-yellow-400 text-[5em] md:text-[10em] roll rounded-full"/>}
+            <div className={show ? "visible fixed w-[90vw] md:w-[50vw] h-[90vh]  backdrop-blur-lg border-[var(--primary-color)] border-[2px] rounded-lg p-[10px] z-10 transition duration-1000 overflow-y-scroll selfScroll top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]" : "hidden"}>
+                {loading&&<AiOutlineLoading className="flex mx-auto p-1 bg-gray-100 fill-yellow-400 text-[3em] md:text-[5em] roll rounded-full"/>}
 
                 <FoodRecipe
                     showDialog={closeDialog}

@@ -35,19 +35,21 @@ async function fetchIngredients(setIngredients, setLoading){
         if(data.meals){
             const result = data.meals.map(x => x.strIngredient);
             setLoading(false);
-            setIngredients(result);
+            setIngredients(shuffle(input));
         } else setLoading(false);
     }catch(e){
         console.log(e, "Error occured at fetchIngredients");
     }
 }
 
-function shuffle(arr){
+function shuffle(input){
+    let arr = input;
     let i = arr.length;
     while(1 < --i){
         const x = Math.floor(Math.random() * i)
         [arr[i], arr[x]] = [arr[x], arr[i]];
     }
+    return arr.slice(0, 50);
 }
     
 export {fetchData, fetchFood, fetchIngredients}
