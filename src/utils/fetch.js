@@ -44,12 +44,27 @@ async function fetchArea (input, setFood, setError, setLoading){
     }
 }
 
-async function fetchFood(id, setLoading){
+async function fetchFood(id, setLoading, setIngredients){
     try{
         setLoading(true);
         const response = await fetch(`https://themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
         const data = await response.json();
         setLoading(false);
+        const ingredients = [];
+        for(let x = 1; x < 21; x++){
+                const measure = data.meals[0][`strMeasure${x}`];
+                const ingredient = data.meals[0][`strIngredient${x}`];
+                if((measure.includes("null") || !measure) && !(ingredient.includes("null"))){
+                    ingredients.push(
+                        `${ingredient}`
+                    );
+                } else {
+                    ingredients.push(
+                        `${measure} ${ingredient}`
+                    )
+                }
+            }
+        setIngredients(ingredients);
         return data.meals[0];
     } catch(e) {
         console.log(e, "Error occured at fetchFood");

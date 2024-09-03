@@ -36,7 +36,8 @@ function App (){
                                     onClick={async (e) => {
                                         console.log(x)
                                         document.getElementById("input").value = x;
-                                        document.querySelectorAll(".list")?.forEach(li => {li.classList.remove("bg-black"); li.classList.remove("text-white")} );
+                                        document.querySelectorAll(".list")?.forEach(li => {li.classList.remove("bg-black"); li.classList.remove("text-white"); li.classList.add("bg-gray-100")} );
+                                        e.target.classList.remove("bg-gray-100");
                                         e.target.classList.add("bg-black");
                                         e.target.classList.add("text-white");
                                         document.getElementById("recipe").scrollIntoView({behavior: "smooth"});
@@ -53,7 +54,8 @@ function App (){
                         {categories.map((x, i)=> (
                                 <div 
                                     onClick={async (e) => {
-                                        document.querySelectorAll(".list")?.forEach(li => {li.classList.remove("bg-black"); li.classList.remove("text-white")} );
+                                        document.querySelectorAll(".list")?.forEach(li => {li.classList.remove("bg-black"); li.classList.remove("text-white"); li.classList.add("bg-gray-100")} );
+                                        e.target.classList.remove("bg-gray-100");
                                         e.target.classList.add("bg-black");
                                         e.target.classList.add("text-white");
                                         document.getElementById("recipe").scrollIntoView({behavior: "smooth"});
@@ -71,7 +73,8 @@ function App (){
                         {areas.map((x, i)=> (
                                 <div 
                                     onClick={async (e) => {
-                                        document.querySelectorAll(".list")?.forEach(li => {li.classList.remove("bg-black"); li.classList.remove("text-white")} );
+                                        document.querySelectorAll(".list")?.forEach(li => {li.classList.remove("bg-black"); li.classList.remove("text-white"); li.classList.add("bg-gray-100")} );
+                                        e.target.classList.remove("bg-gray-100");
                                         e.target.classList.add("bg-black");
                                         e.target.classList.add("text-white");
                                         document.getElementById("recipe").scrollIntoView({behavior: "smooth"});
