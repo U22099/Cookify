@@ -6,7 +6,7 @@ function FoodRecipe(f){
         <div className="flex flex-col justify-center text-black text-bold gap-[10px]">
             <div className="flex items-center relative w-[100%]">
                 <img src={f.img} className="rounded-lg w-[80%] mx-auto"/>
-                <MdClose className="text-[2em] absolute left-[95%] top-[0%] bg-black text-white rounded-full cursor-pointer" onClick={f.showDialog}/>
+                <MdClose className="text-[2em] absolute left-[92%] top-[0%] bg-black text-white rounded-full cursor-pointer" onClick={f.showDialog}/>
             </div>    
             <p className="mx-auto max-w-[90%] flex flex-wrap">{f.tags}</p>
             <div className="ml-[5px] flex flex-col">
