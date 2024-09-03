@@ -1,5 +1,4 @@
 import Food from './Components/Food';
-import Category from './Components/Category';
 import {useState, useEffect} from 'react';
 import {AiOutlineLoading} from 'react-icons/ai';
 import {FaChevronUp, FaChevronDown} from 'react-icons/fa6';
