@@ -33,8 +33,9 @@ function App (){
                                     onClick={async (e) => {
                                         console.log(x)
                                         document.getElementById("input").value = x;
-                                        document.querySelectorAll(".list")?.forEach(li => li.classList.remove("bg-black text-white"));
-                                        e.target.classList.add("bg-black text-white");
+                                        document.querySelectorAll(".list")?.forEach(li => {li.classList.remove("bg-black"); classList.remove("text-white")} );
+                                        e.target.classList.add("bg-black");
+                                        e.target.classList.add("text-white");
                                         document.getElementById("recipe").scrollIntoView({behavior: "smooth"});
                                         await fetchData(x, setFood, setError, setLoading);
                                     }} 
@@ -43,14 +44,15 @@ function App (){
                             )
                         )}
                 </div>
-                 {!showCategory ? <span className="text-black text-[1.5em] md:text-[2em] font-serif" onClick={()=> setShowCategory(true)}>Categories <FaChevronUp/></span> : 
-                <span className="text-black text-[1.5em] md:text-[2em] font-serif" onClick={()=> setShowCategory(false)}>Categories <FaChevronDown/></span>}
+                {!showCategory ? <span className="text-black text-[1.5em] md:text-[2em] font-serif w-[100%] ml-2 md:ml-4 cursor-pointer" onClick={()=> setShowCategory(true)}>Categories <FaChevronUp className="flex ml-2"/></span> : 
+                <span className="text-black text-[1.5em] md:text-[2em] font-serif w-[100%] ml-2 md:ml-4 cursor-pointer" onClick={()=> setShowCategory(false)}>Categories <FaChevronDown className="flex ml-2"/></span>}
                 <div className={(showCategory ? "": "hidden ") +"bg-white md:mx-auto px-2 gap-2 flex flex-wrap w-[95vw] flex justify-start md:px-8 transition-all"}>
                         {categories.map((x, i)=> (
                                 <div 
                                     onClick={async (e) => {
-                                        document.querySelectorAll(".list")?.forEach(li => li.classList.remove("bg-black text-white"));
-                                        e.target.classList.add("bg-black text-white");
+                                        document.querySelectorAll(".list")?.forEach(li => {li.classList.remove("bg-black"); classList.remove("text-white")} );
+                                        e.target.classList.add("bg-black");
+                                        e.target.classList.add("text-white");
                                         document.getElementById("recipe").scrollIntoView({behavior: "smooth"});
                                         await fetchCategory(x, setFood, setError, setLoading);
                                         setShowCategory(false);
@@ -60,8 +62,8 @@ function App (){
                             )
                         )}
                 </div>
-                {!showArea ? <span className="text-black text-[1.5em] md:text-[2em] font-serif" onClick={()=> setShowArea(true)}>Areas <FaChevronUp/></span> : 
-                <span className="text-black text-[1.5em] md:text-[2em] font-serif" onClick={()=> setShowArea(false)}>Areas <FaChevronDown/></span>}
+                {!showArea ? <span className="text-black text-[1.5em] md:text-[2em] font-serif w-[100%] ml-2 md:ml-4 cursor-pointer" onClick={()=> setShowArea(true)}>Areas <FaChevronUp className="flex ml-2"/></span> : 
+                <span className="text-black text-[1.5em] md:text-[2em] font-serif w-[100%] ml-2 md:ml-4 cursor-pointer" onClick={()=> setShowArea(false)}>Areas <FaChevronDown className="flex ml-2"/></span>}
                 <div className={(showArea ? "": "hidden ") +"bg-white md:mx-auto px-2 gap-2 flex flex-wrap w-[95vw] flex justify-start md:px-8 transition-all"}>
                         {areas.map((x, i)=> (
                                 <div 
