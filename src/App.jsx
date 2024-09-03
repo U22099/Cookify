@@ -12,7 +12,7 @@ function App (){
     const [error, setError] = useState(false);
     useEffect(() => {
         fetchIngredients(setIngredients, setLoading);
-    })
+    }, [])
     return(
         <div className="flex flex-col w-[95vw] justify-center gap-4">
             <div className="bg-white md:w-[60vw] p-[20px] rounded-[20px] flex justify-center items-center flex-col md:mx-auto">
