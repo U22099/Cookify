@@ -30,10 +30,10 @@ async function fetchIngredients(setIngredients, setLoading){
     try{
         const response = await fetch('https://www.themealdb.com/api/json/v1/1/list.php?i=list');
         const data = await response.json();
-        const result = data.meals.map(x => x.strIngredient);
+        const result = data.meals.map(x => x.strIngredient)
         setLoading(false);
-        
-        setIngredients(shuffle(result));
+        shuffle(result);
+        setIngredients(result);
     }catch(e){
         console.log(e);
         console.log(x);

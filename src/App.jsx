@@ -23,7 +23,7 @@ function App (){
                     <button className="bg-primary-color shadow-[1px_2px_3px_3px_rgba(0,0,0,0.5)] p-5 py-3 md:p-12 md:py-5 rounded-2xl text-black text-[1.5em] active:shadow-none md:max-w-3/4 mx-auto" onClick={()=> fetchData(input, setFood, setError, setLoading)}>Find Food</button>
                 </div>
             <div className="bg-white md:mx-auto md:w-[70vw] px-2 gap-2 flex flex-wrap">
-                    {ingredients.map((x, i)=> <Ingredient key={i} name={x} no={i} className="list w-fit" onClick={async (e) => {
+                    {ingredients.map((x, i)=> <Ingredient key={i} name={x} no={i} className="list" onClick={async (e) => {
                         setInput(x);
                         document.getElementById("input").value = x;
                         document.querySelectorAll(".list").map(li => li.classList.remove("bg-primary-color"));
