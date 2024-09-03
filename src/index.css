@@ -4,6 +4,9 @@
 
 @tailwind utilities;
 
+:root{
+    --primary-color: linear-gradient(to right, yellow, rgb(253, 195, 4));
+}
 body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -16,7 +19,7 @@ body{
     border-radius: 20px;
 }
 ::-webkit-scrollbar-thumb{
-    background: linear-gradient(to right, yellow, rgb(253, 195, 4));
+    background: var(--primary-color);
     border-radius: 20px;
     cursor: pointer;
     opacity: 0;
@@ -26,30 +29,24 @@ body{
     opacity: 1;
 }
 .selfScroll::-webkit-scrollbar{
-    width: 10px;
+    width: 5px;
 }
 .selfScroll::-webkit-scrollbar-track{
-    background: linear-gradient(to right, yellow, rgb(253, 195, 4) );
-    padding: 5px;
+    background: none;
     border-radius: 20px;
 }
 .selfScroll::-webkit-scrollbar-thumb{
-    background: white;
+    background: var(--primary-color);
     border-radius: 20px;
     cursor: pointer;
-    opacity: 0;
-    transition: 1s ease-in;
-}
-.selfScroll::-webkit-scrollbar-thumb:hover{
-    opacity: 1;
 }
 .primary-color{
-    background: linear-gradient(to right, yellow, rgb(253, 195, 4) );
+    background: var(--primary-color);
     -webkit-background-clip: text;
     color: transparent;
 }
 .bg-primary-color{
-    background: linear-gradient(to right, yellow, rgb(253, 195, 4) );
+    background: var(--primary-color);
 }
 
 .roll{

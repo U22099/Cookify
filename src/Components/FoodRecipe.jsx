@@ -16,13 +16,13 @@ function FoodRecipe(f){
                 <p className="text-[1.4em]">Youtube Link: <a className="text-[orangered] underline decoration-[orangered] underline-offset-1" href={f.youtube}>Watch Video</a></p>
                 <p className="text-[1.4em]">Ingredients:
                 </p> 
-                <ul className="text-[1.4em] max-h-[200px] overflow-y-auto selfScroll w-max pr-[20px]">
+                <ul className="text-[1.4em] max-h-[200px] overflow-hidden overflow-y-auto selfScroll w-max pr-[20px]">
                     {ingArr.map((k, i)=><li key={i}>{k}</li>)}
                 </ul>
             </div>
             <div>
                 <h1  className="text-[2em] text-bold flex justify-center items-center w-[100%]">RECIPE</h1>
-                <p  className="text-[1.2em] text-justify w-[100%]">{f.recipe}</p>
+                <p className="text-[1.2em] text-justify w-[100%]">{f.recipe}</p>
             </div>
         </div>
     )
