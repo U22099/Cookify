@@ -21,11 +21,14 @@ function App (){
     }, [])
     return(
         <div className="flex flex-col w-[95vw] justify-center gap-3">
-            <div className="bg-white p-[20px] flex justify-center items-center flex-col md:mx-auto">
+            <div className="bg-white p-[20px] flex justify-center items-center flex-col md:mx-auto gap-3">
                 <h1 className="text-black text-[2em] md:text-[2.5em] text-bold font-serif">Recipe Generator</h1>
                 <div className="flex flex-col md:flex-row justify-center gap-[20px] bg-white p-[20px] rounded-xl">
                     <input id="input" className=" bg-white focus:outline-none border-gray-800 border-[4px] rounded-[20px] p-[10px] text-[1.2em] md:text-[1.5em] w-[80vw] md:w-auto text-black font-serif" type="text" placeholder="Input any ingredient" onChange={(e) => setInput(e.target.value)}/>
-                    <button className="bg-black text-white shadow-[1px_2px_3px_3px_rgba(0,0,0,0.5)] p-5 py-3 md:p-12 md:py-5 rounded-2xl text-black text-[1.5em] active:shadow-none md:max-w-3/4 mx-auto" onClick={()=> fetchData(input, setFood, setError, setLoading)}>Find Food</button>
+                    <button className="bg-black text-white shadow-[1px_2px_3px_3px_rgba(0,0,0,0.5)] p-5 py-3 md:p-12 md:py-5 rounded-2xl text-black text-[1.5em] active:shadow-none md:max-w-3/4 mx-auto" onClick={async ()=> {
+                        document.getElementById("recipe").scrollIntoView({behavior: "smooth"});
+                        await fetchData(input, setFood, setError, setLoading)
+                    }}>Find Food</button>
                 </div>
                 <div className="bg-white md:mx-auto px-2 gap-2 flex flex-wrap w-[95vw] flex justify-start md:px-8 transition-all">
                         {ingredients.map((x, i)=> (
@@ -33,7 +36,7 @@ function App (){
                                     onClick={async (e) => {
                                         console.log(x)
                                         document.getElementById("input").value = x;
-                                        document.querySelectorAll(".list")?.forEach(li => {li.classList.remove("bg-black"); classList.remove("text-white")} );
+                                        document.querySelectorAll(".list")?.forEach(li => {li.classList.remove("bg-black"); li.classList.remove("text-white")} );
                                         e.target.classList.add("bg-black");
                                         e.target.classList.add("text-white");
                                         document.getElementById("recipe").scrollIntoView({behavior: "smooth"});
@@ -50,7 +53,7 @@ function App (){
                         {categories.map((x, i)=> (
                                 <div 
                                     onClick={async (e) => {
-                                        document.querySelectorAll(".list")?.forEach(li => {li.classList.remove("bg-black"); classList.remove("text-white")} );
+                                        document.querySelectorAll(".list")?.forEach(li => {li.classList.remove("bg-black"); li.classList.remove("text-white")} );
                                         e.target.classList.add("bg-black");
                                         e.target.classList.add("text-white");
                                         document.getElementById("recipe").scrollIntoView({behavior: "smooth"});
@@ -68,7 +71,7 @@ function App (){
                         {areas.map((x, i)=> (
                                 <div 
                                     onClick={async (e) => {
-                                        document.querySelectorAll(".list")?.forEach(li => {li.classList.remove("bg-black"); classList.remove("text-white")} );
+                                        document.querySelectorAll(".list")?.forEach(li => {li.classList.remove("bg-black"); li.classList.remove("text-white")} );
                                         e.target.classList.add("bg-black");
                                         e.target.classList.add("text-white");
                                         document.getElementById("recipe").scrollIntoView({behavior: "smooth"});
