@@ -26,15 +26,15 @@ async function fetchFood(x, setLoading){
 
 async function fetchIngredients(setIngredients, setLoading){
     try{
+        setLoading(true);
         const response = await fetch('https://www.themealdb.com/api/json/v1/1/list.php?i=list');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        const result = data.meals.map(x => x.strIngredient);
         if(data.meals){
+            const result = data.meals.map(x => x.strIngredient);
             setLoading(false);
-            shuffle(result);
             setIngredients(result);
         } else setLoading(false);
     }catch(e){

@@ -11,7 +11,6 @@ function App (){
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     useEffect(() => {
-        setLoading(true);
         fetchIngredients(setIngredients, setLoading);
     })
     return(
