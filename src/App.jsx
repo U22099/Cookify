@@ -27,7 +27,7 @@ function App (){
                     <input id="input" className=" bg-white focus:outline-none border-yello-400 border-[4px] rounded-[20px] p-[10px] text-[1.2em] md:text-[1.5em] w-[80vw] md:w-auto text-black font-serif" type="text" placeholder="Input any ingredient" onChange={(e) => setInput(e.target.value)}/>
                     <button className="bg-primary-color shadow-[1px_2px_3px_3px_rgba(0,0,0,0.5)] p-5 py-3 md:p-12 md:py-5 rounded-2xl text-black text-[1.5em] active:shadow-none md:max-w-3/4 mx-auto" onClick={()=> fetchData(input, setFood, setError, setLoading)}>Find Food</button>
                 </div>
-                <div className="bg-white md:mx-auto md:w-[7vw] px-2 gap-2 flex flex-wrap w-[95vw]">
+                <div className="bg-white md:mx-auto px-2 gap-2 flex flex-wrap w-[95vw]">
                         {ingredients.map((x, i)=> (
                                 <div 
                                     onClick={async (e) => {
@@ -46,7 +46,7 @@ function App (){
                 <h1 className="text-black text-[1.5em] md:text-[2em] font-serif">Categories {!showCategory ?<FaChevronUp onClick={()=> setShowCategory(false)}/> : 
                 <FaChevronDown onClick={()=> setShowCategory(true)} />
                 }</h1>
-                <div className={showCategory ? "": "hidden " +"bg-white md:mx-auto md:w-[7vw] px-2 gap-2 flex flex-wrap w-[95vw] transition-all"}>
+                <div className={showCategory ? "": "hidden " +"bg-white md:mx-auto px-2 gap-2 flex flex-wrap w-[95vw] transition-all"}>
                         {categories.map((x, i)=> (
                                 <div 
                                     onClick={async (e) => {
@@ -64,7 +64,7 @@ function App (){
                 <h1 className="text-black text-[1.5em] md:text-[2em] font-serif">Areas {!showArea ?<FaChevronUp onClick={()=> setShowArea(false)}/> : 
                 <FaChevronDown onClick={()=> setShowArea(true)} />
                 }</h1>
-                <div className={showArea ? "": "hidden " +"bg-white md:mx-auto md:w-[7vw] px-2 gap-2 flex flex-wrap w-[95vw] transition-all"}>
+                <div className={showArea ? "": "hidden " +"bg-white md:mx-auto px-2 gap-2 flex flex-wrap w-[95vw] transition-all"}>
                         {areas.map((x, i)=> (
                                 <div 
                                     onClick={async (e) => {

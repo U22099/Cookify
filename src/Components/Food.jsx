@@ -14,7 +14,7 @@ function Food(f){
     }
     useEffect(()=>{
         if(data.strMeasure1){
-            for(let i = 1; i < 21; i++){
+            for(let x = 1; x < 21; x++){
                 const measure = data[`strMeasure${x}`];
                 const ingredient = data[`strIngredient${x}`];
                 if(measure.includes("null") && !(ingredient.includes("null"))){
