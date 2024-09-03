@@ -1,28 +1,7 @@
 import {MdClose} from 'react-icons/md'
 
 function FoodRecipe(f){
-    const ingArr = [
-        f.measure1+" "+f.ingredient1,
-        f.measure2+" "+f.ingredient2,
-        f.measure3+" "+f.ingredient3,
-        f.measure4+" "+f.ingredient4,
-        f.measure5+" "+f.ingredient5,
-        f.measure6+" "+f.ingredient6,
-        f.measure7+" "+f.ingredient7,
-        f.measure8+" "+f.ingredient8,
-        f.measure9+" "+f.ingredient9,
-        f.measure10+" "+f.ingredient10,
-        f.measure11+" "+f.ingredient11,
-        f.measure12+" "+f.ingredient12,
-        f.measure13+" "+f.ingredient13,
-        f.measure14+" "+f.ingredient14,
-        f.measure15+" "+f.ingredient15,
-        f.measure16+" "+f.ingredient16,
-        f.measure17+" "+f.ingredient17,
-        f.measure18+" "+f.ingredient18,
-        f.measure19+" "+f.ingredient19,
-        f.measure20+" "+f.ingredient20,
-    ].filter(k=> !(k.includes("null")));
+    const ingArr = f.ingredients.filter(k=> !(k.includes("null")));
     return(
         <div className="flex flex-col justify-center text-black text-bold gap-[10px]">
             <div className="flex items-center relative w-[100%]">

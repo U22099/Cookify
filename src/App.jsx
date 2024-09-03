@@ -22,18 +22,20 @@ function App (){
                     <button className="bg-primary-color shadow-[1px_2px_3px_3px_rgba(0,0,0,0.5)] p-5 py-3 md:p-12 md:py-5 rounded-2xl text-black text-[1.5em] active:shadow-none md:max-w-3/4 mx-auto" onClick={()=> fetchData(input, setFood, setError, setLoading)}>Find Food</button>
                 </div>
             <div className="bg-white md:mx-auto md:w-[7vw] px-2 gap-2 flex flex-wrap w-[95vw]">
-                    {ingredients.map((x, i)=> {
+                    {ingredients.map((x, i)=> (
                         <div 
-                        onClick={async (e) => {
-                        console.log(x)
-                        console.log("clicked")
-                        document.getElementById("input").value = x;
-                        document.querySelectorAll(".list").map(li => li.classList.remove("bg-primary-color"));
-                        e.target.classList.add = "bg-primary-color";
-                        document.getElementById("recipe").scrollIntoView({behavior: smooth});
-                        await fetchData(x, setFood, setError, setLoading);
-                    }} 
-                        className={(i > 20 ? "hidden md:flex ": "") +"cursor-pointer bg-gray-100 rounded-full p-2 w-fit h-fit list"}>{c}</div>})}
+                            onClick={async (e) => {
+                                console.log(x)
+                                console.log("clicked")
+                                document.getElementById("input")?.value = x;
+                                document.querySelectorAll(".list")?.forEach(li => li.classList.remove("bg-primary-color"));
+                                e.target.classList.add("bg-primary-color");
+                                document.getElementById("recipe").scrollIntoView({behavior: smooth});
+                                await fetchData(x, setFood, setError, setLoading);
+                        }} 
+                        className={(i > 20 ? "hidden md:flex ": "") +"cursor-pointer bg-gray-100 rounded-full p-2 w-fit h-fit list"}>{c}
+                        </div>)
+                        )}
                 </div>
             </div>
             {loading&&<AiOutlineLoading className="flex mx-auto p-1 bg-gray-100 fill-yellow-400 text-[3em] md:text-[5em] roll rounded-full"/>}
