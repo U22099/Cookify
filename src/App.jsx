@@ -23,11 +23,11 @@ function App (){
                 </div>
             <div className="bg-white md:mx-auto md:w-[70vw] px-2 gap-2 flex flex-wrap w-[95vw]">
                     {ingredients.map((x, i)=> <Ingredient key={i} name={x} no={i} className="list" onClick={async (e) => {
-                        setInput(x);
+                        console.log(x)
                         document.getElementById("input").value = x;
                         document.querySelectorAll(".list").map(li => li.classList.remove("bg-primary-color"));
                         e.target.classList.add = "bg-primary-color";
-                        await fetchData(input, setFood, setError, setLoading);
+                        await fetchData(x, setFood, setError, setLoading);
                     }}/>)}
                 </div>
             </div>
