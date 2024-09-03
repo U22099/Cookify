@@ -31,8 +31,8 @@ function App (){
                                 e.target.classList.add("bg-primary-color");
                                 document.getElementById("recipe").scrollIntoView({behavior: smooth});
                                 await fetchData(x, setFood, setError, setLoading);
-                        }} 
-                        className={(i > 10 ? "hidden md:flex ": "") +"cursor-pointer bg-gray-100 rounded-full p-2 w-fit h-fit list"}>{c}
+                            }} 
+                            className={(i > 10 ? "hidden md:flex ": "") +"cursor-pointer bg-gray-100 rounded-full p-2 w-fit h-fit list"}>{x}
                         </div>)
                         )}
                 </div>
